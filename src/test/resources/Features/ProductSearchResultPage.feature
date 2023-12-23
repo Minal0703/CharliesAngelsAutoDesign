@@ -13,3 +13,7 @@ Scenario: Verify user is able to sort product by low to high option
 	Then On product search result page user should sort product by low to high price
 	
 	
+Scenario: Verify Dresses Filter on product search result page
+	Given User enters mango brand in search component and hits enter
+	When User select dresses filter from left side menu
+	Then All the Mango dresses should get filter out 
