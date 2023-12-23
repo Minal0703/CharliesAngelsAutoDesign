@@ -1,4 +1,4 @@
-package com.jarvis.waits;
+package com.charlies.waits;
 
 import java.time.Duration;
 import java.util.List;
@@ -10,7 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 
-import com.jarvis.keywordFramework.keywords;
+import com.charlies.keywords.*;
 
 public class WaitFor {
 	

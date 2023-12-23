@@ -1,4 +1,4 @@
-package com.jarvis.pages;
+package com.charlies.pages;
 
 import java.util.List;
 
@@ -8,8 +8,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
-import com.jarvis.keywordFramework.*;
-import com.jarvis.waits.WaitFor;
+import com.charlies.keywords.*;
+import com.charlies.waits.*;
 
 public class MenMenuPage {
 	

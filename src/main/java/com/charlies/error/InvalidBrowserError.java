@@ -1,4 +1,4 @@
-package com.jarvis.errors;
+package com.charlies.error;
 
 public class InvalidBrowserError extends Error{
 	

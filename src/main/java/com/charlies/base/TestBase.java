@@ -1,9 +1,8 @@
-package com.jarvis.base;
+package com.charlies.base;
 
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-import com.jarvis.keywordFramework.*;
+import com.charlies.keywords.*;
 
 public class TestBase {
 	

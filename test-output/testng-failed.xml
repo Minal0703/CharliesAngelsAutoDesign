@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tutorialsninja.qa.testcases.TestCaseWithoutFrame">
+      <class name="com.charlies.Tests.TestRunner">
         <methods>
-          <include name="setUp"/>
-          <include name="verifyUserCanAddProductToBag"/>
-          <include name="teirDown"/>
+          <include name="setUpClass"/>
+          <include name="tearDownClass"/>
+          <include name="runScenario" invocation-numbers="0 16 3 4 12 14 15"/>
         </methods>
-      </class> <!-- com.tutorialsninja.qa.testcases.TestCaseWithoutFrame -->
+      </class> <!-- com.charlies.Tests.TestRunner -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

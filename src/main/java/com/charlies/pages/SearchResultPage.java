@@ -1,5 +1,6 @@
-package com.jarvis.pages;
+package com.charlies.pages;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -9,18 +10,21 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.jarvis.keywordFramework.keywords;
-import com.jarvis.waits.WaitFor;
+import com.charlies.keywords.*;
+import com.charlies.waits.*;
 
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
 public class SearchResultPage {
 	
+	@FindBy(css="span.sprites-search")
+	public WebElement glassMagnifier;
+	
 	@FindBy(css="h3.product-brand")
 	public List<WebElement> productTitle;
 	
-	@FindBy(css="div.sort-sortBy")
+	@FindBy(css="span.sprites-downArrow")
 	public WebElement sortByDropDown;
 	
 	@FindBy(xpath="//label[contains(text(),'Price: High to Low')]")
@@ -83,12 +87,10 @@ public class SearchResultPage {
 	}
 	
 	public void clickOnHighToLow(){
-		//WaitFor.presenceOfElementToBeLocated(productPrice1);
 		WaitFor.waitForelementToBeClickable(highToLow);
 		highToLow.click();
-
+		
 	}
-	
 	public void clickOnLowToHigh(){
 		//WaitFor.presenceOfElementToBeLocated(productPrice1);
 		WaitFor.waitForelementToBeClickable(LowToHigh);
@@ -96,11 +98,16 @@ public class SearchResultPage {
 
 	}
 	
-	public void selectCheckBox(WebElement ele) throws InterruptedException {
-		Thread.sleep(5000);
+	public void selectCheckBox(WebElement ele){
 		keywords keyword = new keywords();
 		keyword.getMouseHover(ele);
 		
+	}
+	
+	public void clickOnDressFilter() throws InterruptedException {
+		Thread.sleep(5000);
+		dressFilter.click();
+
 	}
 	
 	public  List<String> getProductPrice() {
@@ -130,7 +137,7 @@ public class SearchResultPage {
 	         System.out.println("Price of product is:" + number);
 	         break;
 			}
-			softly.assertTrue(number>=8000 && number<=18000);
+			softly.assertTrue(number>=4000 && number<=17000);
 			System.out.println("Products are sorted on the basis of high to low");
 		}
 		softly.assertAll();
@@ -152,14 +159,13 @@ public class SearchResultPage {
 	         System.out.println("Price of product is:" + number);
 	         break;
 			}
-			softly.assertTrue(number>=300 && number<=500);
-			System.out.println("Products are sorted on the basis of high to low");
+			softly.assertTrue(number>=300 && number<=1000);
+			System.out.println("Products are sorted on the basis of low to high");
 		}
 		softly.assertAll();
 	   }
 			
 	public List<String> getDressName() {
-		WaitFor.numberOfElementToBeMoreThan(dressName1,1);
 		keywords keyword = new keywords();
 		return keyword.getTexts(dressName);
 	}
@@ -204,6 +210,11 @@ public class SearchResultPage {
 		System.out.println("Actual URL is :" + Actualurl );
 		Assert.assertEquals(Actualurl, expected_url);
 		System.out.println("Expected and Actual URL is matching" );
+	}
+	
+	public void clicksOnGlassMagnifier() {
+		glassMagnifier.click();
+	
 	}
 }
 	

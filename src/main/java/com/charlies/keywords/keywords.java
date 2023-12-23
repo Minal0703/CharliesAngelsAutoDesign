@@ -1,4 +1,4 @@
-package com.jarvis.keywordFramework;
+package com.charlies.keywords;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -18,7 +18,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import com.jarvis.errors.InvalidBrowserError;
+import com.charlies.error.*;
 
 public class keywords {
 	

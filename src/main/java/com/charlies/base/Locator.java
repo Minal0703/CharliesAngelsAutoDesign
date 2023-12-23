@@ -1,4 +1,4 @@
-package com.jarvis.base;
+package com.charlies.base;
 
 public interface Locator {
 	

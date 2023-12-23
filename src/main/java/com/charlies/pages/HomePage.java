@@ -1,12 +1,12 @@
-package com.jarvis.pages;
+package com.charlies.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.jarvis.keywordFramework.keywords;
-import com.jarvis.waits.WaitFor;
+import com.charlies.keywords.*;
+import com.charlies.waits.*;
 
 
 public class HomePage {
