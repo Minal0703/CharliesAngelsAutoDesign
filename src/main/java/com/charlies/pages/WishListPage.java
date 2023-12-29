@@ -1,7 +1,6 @@
 package com.charlies.pages;
 
-import static org.testng.Assert.assertEquals;
-
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -11,6 +10,7 @@ import com.charlies.keywords.*;
 
 public class WishListPage {
 	
+Logger LOG=Logger.getLogger(WishListPage.class);
 	@FindBy(css="div.wishlistLogin-info")
 	public WebElement infoOnWishList;
 	
@@ -28,11 +28,11 @@ public class WishListPage {
 	public void verifyIfWishListContainsText(String expected_text) {
 		String text =getWishListInfoWithOutLogin();
 		Assert.assertEquals(text, expected_text);
-
+		
 	}
 	
 	public void clickOnLogin(WebElement login) {
 			login.click();
-
+			LOG.info("Logged in");
 	}
 }

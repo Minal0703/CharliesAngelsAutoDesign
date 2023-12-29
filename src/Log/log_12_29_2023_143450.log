@@ -1,0 +1,4 @@
+2023-Dec-29 14:34:45,787 [main] com.charlies.pages.HomePage 
+  INFO  Logged info
+2023-Dec-29 14:34:50,410 [main] com.charlies.stepdefinations.ProductCartFunction 
+  INFO  Item Added To Cart

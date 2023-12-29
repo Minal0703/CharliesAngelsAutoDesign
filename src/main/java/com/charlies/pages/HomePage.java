@@ -1,5 +1,6 @@
 package com.charlies.pages;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,6 +12,7 @@ import com.charlies.waits.*;
 
 public class HomePage {
 	
+	Logger LOG=Logger.getLogger(HomePage.class);
 	//WebElements
 	@FindBy(css ="div.desktop-query>input.desktop-searchBar")
 	public WebElement searchComponent;
@@ -31,7 +33,7 @@ public class HomePage {
 	//Action or methods to be performed on webelement
 	public void enterProductToSearch(CharSequence...productName) {
 		searchComponent.sendKeys(productName);
-
+		LOG.info("Logged info");
 	}
 	
 	public void clickOnUserProfile() {

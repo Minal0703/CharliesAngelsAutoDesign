@@ -46,7 +46,6 @@ public class WaitFor {
 
 }
 	
-	
 	public static void presenceOfElementToBeLocated(By ele ) {
 		wait.until(ExpectedConditions.presenceOfElementLocated(ele));
 
@@ -54,13 +53,10 @@ public class WaitFor {
         public static void waitForstaleElementReferenceException(WebElement ele) {
         	wait.until(ExpectedConditions.stalenessOf(ele));
 
-
 		}
         
         public static void waitForelementToBeClickable(WebElement ele) {
         	wait.until(ExpectedConditions.elementToBeClickable(ele));
-
-
 		}
 
 
@@ -68,6 +64,8 @@ public class WaitFor {
 			wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(dressName1, count));
 			
 		}
+		
+	
 }
 
 

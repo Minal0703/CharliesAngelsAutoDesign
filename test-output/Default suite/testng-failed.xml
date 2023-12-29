@@ -6,8 +6,8 @@
       <class name="com.charlies.Tests.TestRunner">
         <methods>
           <include name="setUpClass"/>
+          <include name="runScenario" invocation-numbers="0"/>
           <include name="tearDownClass"/>
-          <include name="runScenario" invocation-numbers="0 16 3 4 12 14 15"/>
         </methods>
       </class> <!-- com.charlies.Tests.TestRunner -->
     </classes>

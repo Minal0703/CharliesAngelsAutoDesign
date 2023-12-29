@@ -2,6 +2,7 @@ package com.charlies.pages;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,7 +14,7 @@ import com.charlies.waits.*;
 
 public class MenMenuPage {
 	
-	
+	Logger LOG=Logger.getLogger(MenMenuPage.class);
 	@FindBy(css="div.desktop-navLink a[href^=\"/shop/men\"]")
 	public WebElement mensOption;
 	
@@ -53,7 +54,7 @@ public class MenMenuPage {
 	
 	public void clickOnProducts(WebElement ele) {
 		ele.click();
-
+		LOG.info("Clicked on products");
 	}
 	public String getLoginUrl() {
 		WaitFor.numberOfElementToBeMoreThan(productName, 1);

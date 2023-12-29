@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,6 +19,7 @@ import org.testng.asserts.SoftAssert;
 
 public class SearchResultPage {
 	
+	Logger LOG=Logger.getLogger(SearchResultPage.class);
 	@FindBy(css="span.sprites-search")
 	public WebElement glassMagnifier;
 	
@@ -61,6 +63,11 @@ public class SearchResultPage {
 	@FindBy(css="li.colour-listItem label span[data-colorhex=\"black\"]")
 	public WebElement colorFilter;
 	
+	private By kurtaAndTrouserBy=By.cssSelector("ul.results-base li:nth-child(3) h4.product-product");
+	
+	@FindBy(css="ul.results-base li:nth-child(3) h4.product-product")
+	public WebElement kurtaAndTrouser;
+	
 	public SearchResultPage() {
 		PageFactory.initElements(keywords.getDriver(), this);
 	}
@@ -89,13 +96,14 @@ public class SearchResultPage {
 	public void clickOnHighToLow(){
 		WaitFor.waitForelementToBeClickable(highToLow);
 		highToLow.click();
+		LOG.info("Filter applied");
 		
 	}
 	public void clickOnLowToHigh(){
 		//WaitFor.presenceOfElementToBeLocated(productPrice1);
 		WaitFor.waitForelementToBeClickable(LowToHigh);
 		LowToHigh.click();
-
+		LOG.info("New Filter applied");
 	}
 	
 	public void selectCheckBox(WebElement ele){
@@ -215,6 +223,18 @@ public class SearchResultPage {
 	public void clicksOnGlassMagnifier() {
 		glassMagnifier.click();
 	
+	}
+
+	public void clickOnKurtaWithTrouser() {
+		WaitFor.waitForelementToBeClickable(kurtaAndTrouser);
+		//verifyDressNameContains("Kurta with Trousers & Dupatta");
+		kurtaAndTrouser.click();
+		
+	}
+
+	public void switchToPIPPage(String productTitle) {
+		keywords keyword=new keywords();
+		keyword.switchToWindowByTitle(productTitle);
 	}
 }
 	

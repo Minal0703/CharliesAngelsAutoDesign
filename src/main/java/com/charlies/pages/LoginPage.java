@@ -2,6 +2,7 @@ package com.charlies.pages;
 
 import static org.testng.Assert.assertTrue;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -12,6 +13,7 @@ import com.charlies.keywords.*;
 
 public class LoginPage {
 	
+	Logger LOG=Logger.getLogger(LoginPage.class);
 	@FindBy(css="a.desktop-linkButton")
 	public WebElement loginButton;
 	
@@ -27,6 +29,7 @@ public class LoginPage {
 	
 	public void clickOnLoginButton(WebElement login) {
 		login.click();
+		LOG.info("Logged in");
 	}
 	
 	public String getText() {

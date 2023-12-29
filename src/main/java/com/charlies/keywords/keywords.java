@@ -7,9 +7,7 @@ import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver.Options;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.WindowType;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -196,4 +194,15 @@ public class keywords {
 		 return ele.getText();
 	 }
 
+	 public void switchToWindowByTitle(String title) {
+			Set<String> allWindows=driver.getWindowHandles();
+			for (String window:allWindows)
+			{
+				driver.switchTo().window(window);
+				if(driver.getTitle().equals(title)) {
+					break;
+				}
+			}
+		}
+	 
 }

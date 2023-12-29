@@ -1,6 +1,5 @@
 package com.charlies.stepdefinations;
 
-
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import com.charlies.base.*;
@@ -14,6 +13,12 @@ public class Hooks {
 		keyword.openBrowser(Config.getBrowserName());
 		keyword.openUrl(Config.getAppURL());
 		keyword.maximizeWindow();
+	}
+	
+	@After
+	public void tearDown() throws Exception {
+		keywords keyword = new keywords();
+		//keyword.quitAllWindows();
 	}
 
 }
