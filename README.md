@@ -24,8 +24,7 @@ Scenario: Verify Login Field is Marked With Asterik sign
     Then Select Size S
     Then Click on Add To Bag
 
-  @WIP
-  Scenario: Verify user able to apply prize filter
+ Scenario: Verify user able to apply prize filter
     Given Enter kalini in search component
     Then Select Prize Filter and apply value
 Feature: Features to verify all the myntra product search result page related functionalities
@@ -35,8 +34,7 @@ Feature: Features to verify all the myntra product search result page related fu
     When User clicks on glass magnifier
     Then On product search result page user should sort product by high to low price.
 
-<<<<<<< HEAD
-  Scenario: Verify user is able to sort product by low to high option
+Scenario: Verify user is able to sort product by low to high option
     Given User enters mango brand in search component
     When User clicks on glass magnifier
     Then On product search result page user should sort product by low to high price
