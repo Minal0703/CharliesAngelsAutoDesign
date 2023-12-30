@@ -43,19 +43,17 @@ Scenario: Verify user is able to sort product by highToLow option
 	Given User enters mango brand in search component
 	When User clicks on glass magnifier
 	Then On product search result page user should sort product by high to low price.
-
 	
 Scenario: Verify user is able to sort product by low to high option
 	Given User enters mango brand in search component
 	When User clicks on glass magnifier
 	Then On product search result page user should sort product by low to high price
-	
-	
+		
 Scenario: Verify Dresses Filter on product search result page
 	Given User enters mango brand in search component and hits enter
 	When User select dresses filter from left side menu
 	Then All the Mango dresses should get filter out 
->>>>>>> 1912854d6da3004b8220e1d1b1a8fee9fb0e2eab
+
 Feature: Test CRUD Methods on reqres Sample Employee REST API Testing
 
   Scenario: Create Employee record
@@ -101,7 +99,22 @@ Waits Package-->included wait functionalities
 3) src/test/java
    tests package-->TestRunner Class to include the Cucumber Plugin and Tests Class for testng test cases
 
-3) src/test/resources
+4) src/test/resources
+   Features Files
+   allure properties
+   Config File
+   testng.xml File
+
+
+5) src Folder-> includes a Log Folder
+6) target Folder->allure results Folder
+
+POM.xml 
+Allure Report Dependency
+Cucumber Dependency
+TestNG Dependency
+Log4j Dependency included
+   
 
 
 
