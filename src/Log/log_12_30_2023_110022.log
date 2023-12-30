@@ -1,0 +1,6 @@
+2023-Dec-30 11:00:22,746 [main] com.charlies.keywords.keywords 
+  INFO  opening firefox browser
+2023-Dec-30 11:00:32,438 [main] com.charlies.keywords.keywords 
+  INFO  Launching url
+2023-Dec-30 11:00:48,610 [main] com.charlies.pages.LoginPage 
+  INFO  Mandatory Field Mobile no is marked with red Asterik: Mobile Number*

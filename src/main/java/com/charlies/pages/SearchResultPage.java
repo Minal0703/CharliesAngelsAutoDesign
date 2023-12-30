@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -17,6 +18,8 @@ import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
 public class SearchResultPage {
+	
+	Logger LOG = Logger.getLogger(SearchResultPage.class);
 	
 	@FindBy(css="span.sprites-search")
 	public WebElement glassMagnifier;
@@ -71,11 +74,10 @@ public class SearchResultPage {
 	}
 	public void verifyProductTitlesContains(String expectedText) {
 		List<String> titles =getProductTitles();
-		System.out.println(titles);
 		SoftAssert softly = new SoftAssert();
 		for(String title:titles)
 		{	
-			System.out.println(title);
+			LOG.info(title);
 			softly.assertTrue(title.contains(expectedText));
 		}
 		softly.assertAll();
@@ -91,8 +93,7 @@ public class SearchResultPage {
 		highToLow.click();
 		
 	}
-	public void clickOnLowToHigh(){
-		//WaitFor.presenceOfElementToBeLocated(productPrice1);
+	public void clickOnLowToHigh() {
 		WaitFor.waitForelementToBeClickable(LowToHigh);
 		LowToHigh.click();
 
@@ -123,7 +124,6 @@ public class SearchResultPage {
 	
 	public void verifyProductPriceBetweenHighToLow() {
 		List<String> proprices =getProductPrice();
-		System.out.println(proprices.size());
 		SoftAssert softly = new SoftAssert();
 		int number = 0;
 		for(String proprice:proprices) 
@@ -133,19 +133,16 @@ public class SearchResultPage {
 			while (matcher.find()) {
 	         String numberStr = matcher.group();
 	         number = Integer.parseInt(numberStr); 
-	         //num.add(number);
-	         System.out.println("Price of product is:" + number);
 	         break;
 			}
 			softly.assertTrue(number>=4000 && number<=17000);
-			System.out.println("Products are sorted on the basis of high to low");
+			LOG.info("Products are sorted on the basis of high to low");
 		}
 		softly.assertAll();
 	   }
 	
 	public void verifyProductPriceBetweenLowToHigh() {
 		List<String> proprices =getDiscountedPrice();
-		System.out.println(proprices.size());
 		SoftAssert softly = new SoftAssert();
 		int number = 0;
 		for(String proprice:proprices) 
@@ -156,11 +153,11 @@ public class SearchResultPage {
 	         String numberStr = matcher.group();
 	         number = Integer.parseInt(numberStr); 
 	         //num.add(number);
-	         System.out.println("Price of product is:" + number);
+	         LOG.info("Price of product is:" + number);
 	         break;
 			}
 			softly.assertTrue(number>=300 && number<=1000);
-			System.out.println("Products are sorted on the basis of low to high");
+			LOG.info("Products are sorted on the basis of low to high");
 		}
 		softly.assertAll();
 	   }
@@ -172,11 +169,10 @@ public class SearchResultPage {
 	
 	public void verifyDressNameContains(String expectedText) {
 		List<String> titles =getDressName();
-		System.out.println(titles);
 		SoftAssert softly = new SoftAssert();
 		for(String title:titles)
 		{	
-			System.out.println(title);
+			LOG.info(title);
 			softly.assertTrue(title.contains(expectedText));
 		}
 		softly.assertAll();
@@ -191,7 +187,7 @@ public class SearchResultPage {
 		SoftAssert softly = new SoftAssert();
 		for(String color:dresscolours) 
 		{
-			System.out.println(color);
+			LOG.info(color);
 			softly.assertTrue(color.contains("black"));
 		}
 
@@ -207,9 +203,8 @@ public class SearchResultPage {
 	}
 	public void verifyURL(String expected_url) {
 		String Actualurl=getLoginUrl();
-		System.out.println("Actual URL is :" + Actualurl );
 		Assert.assertEquals(Actualurl, expected_url);
-		System.out.println("Expected and Actual URL is matching" );
+		LOG.info("Expected and Actual URL is matching" );
 	}
 	
 	public void clicksOnGlassMagnifier() {

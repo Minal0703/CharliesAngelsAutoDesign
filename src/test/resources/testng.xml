@@ -3,8 +3,8 @@
 <suite name="CharliesAngelsAutoDesign">
   <test name="Test">
     <classes>
-	  <class name="com.charlies.Tests.TestRunner.java"/>
-	  <class name="com.charlies.stepdefinations.Hooks.java"/>
+	  <class name="com.charlies.Tests.TestRunner"/>
+	  <class name="com.charlies.stepdefinations.Hooks"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

@@ -1,0 +1,4 @@
+2023-Dec-30 11:05:02,618 [main] com.charlies.pages.HomePage 
+  INFO  Entered product to serach[Ljava.lang.CharSequence;@2dafae61to search
+2023-Dec-30 11:05:34,175 [main] com.charlies.pages.SearchResultPage 
+  INFO  Expected and Actual URL is matching

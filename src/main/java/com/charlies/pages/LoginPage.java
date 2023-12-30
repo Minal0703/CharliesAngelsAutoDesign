@@ -1,7 +1,5 @@
 package com.charlies.pages;
-
-import static org.testng.Assert.assertTrue;
-
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -11,6 +9,9 @@ import org.testng.asserts.SoftAssert;
 import com.charlies.keywords.*;
 
 public class LoginPage {
+	
+	
+	Logger LOG = Logger.getLogger(LoginPage.class);
 	
 	@FindBy(css="a.desktop-linkButton")
 	public WebElement loginButton;
@@ -38,7 +39,7 @@ public class LoginPage {
 			String text =getText();
 			SoftAssert softly = new SoftAssert();
 			softly.assertTrue(text.contains(expectedText));	
-			System.out.println("Mandatory Field Mobile no is marked with red Asterik: " + text);
+			LOG.info("Mandatory Field Mobile no is marked with red Asterik: " + text);
 			
 	}
 	
@@ -50,9 +51,8 @@ public class LoginPage {
 	}
 	public void verifyLoginURL(String expected_url) {
 		String Actualurl=getLoginUrl();
-		System.out.println("Actual URL is :" + Actualurl );
 		Assert.assertEquals(Actualurl, expected_url);
-		System.out.println("Expected and Actual URL is matching" );
+		LOG.info("Expected and Actual URL is matching" );
 	}
 }
 	

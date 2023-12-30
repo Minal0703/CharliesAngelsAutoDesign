@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver.Options;
@@ -21,6 +22,8 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import com.charlies.error.*;
 
 public class keywords {
+	
+	private static final Logger LOG = Logger.getLogger(keywords.class);
 	
 	private static RemoteWebDriver driver= null; 
 	public  static JavascriptExecutor js = null; 
@@ -40,21 +43,21 @@ public class keywords {
 			chro_options = new ChromeOptions();
 			driver = new ChromeDriver(chro_options);
 			chro_options.addArguments("--disable-notifications--");
-			System.out.println("opening chrome browser");
+			LOG.info("opening chrome browser");
 		}
 		else if(browserName.equalsIgnoreCase("Firefox"))
 		{
 			Fire_options = new FirefoxOptions();
 			driver = new FirefoxDriver(Fire_options);
 			Fire_options.addArguments("--disable-notifications--");
-			System.out.println("opening firefox browser");
+			LOG.info("opening firefox browser");
 		}
 		else if(browserName.equalsIgnoreCase("Edge"))
 		{
 			Edge_options= new EdgeOptions();
 			driver = new EdgeDriver(Edge_options);
 			Edge_options.addArguments("--disable-notifications--");
-			System.out.println("opening Edge browser");
+			LOG.info("opening Edge browser");
 		}
 		else 
 		{
@@ -65,7 +68,7 @@ public class keywords {
 	public void openUrl(String url) 
 		{
 			driver.get(url);
-			System.out.println("Launching url");
+			LOG.info("Launching url");
 		}
 		
 	 public void closeBrowser() {
@@ -184,8 +187,9 @@ public class keywords {
 			 	String child_window= itr.next();
 			 	if(!parent_window.equalsIgnoreCase(child_window)) 
 			 	{
+			 		LOG.info(child_window);
 			 		driver.switchTo().window(child_window);
-			 	
+			 		
 			 	}
 		 
 		 }

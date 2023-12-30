@@ -139,16 +139,17 @@ public class Tests extends TestBase{
 	
 	@Test(enabled=false)
 	public void verifyUserCanNavigateToMensClothingFromTopMenu() {
-		MenMenuPage menupage = new MenMenuPage();
-		menupage.mouseHoverTo();
-		menupage.clickOnProducts(menupage.shirtOption);
+		HomePage homepage = new HomePage();
+		homepage.mouseHoverTo();
+		homepage.clickOnProducts(homepage.shirtOption);
 		
 	}
 	@Test(enabled=false)
 	public void verifyUserCanAddProductToBag() throws InterruptedException {
+		HomePage homepage = new HomePage();
 		MenMenuPage menupage = new MenMenuPage();
-		menupage.mouseHoverTo();
-		menupage.clickOnProducts(menupage.shirtOption);
+		homepage.mouseHoverTo();
+		homepage.clickOnProducts(homepage.shirtOption);
 		menupage.clickOnProducts(menupage.finalProduct);
 		Thread.sleep(5000);
 		menupage.switchToWindow();
@@ -161,10 +162,11 @@ public class Tests extends TestBase{
 	
 	@Test
 	public void verifyUserIsAbleToRemoveProductFromBag() throws InterruptedException {
+		HomePage homepage = new HomePage();
 		MenMenuPage menupage = new MenMenuPage();
 		CheckOutPage checkpage = new CheckOutPage();
-		menupage.mouseHoverTo();
-		menupage.clickOnProducts(menupage.shirtOption);
+		homepage.mouseHoverTo();
+		homepage.clickOnProducts(homepage.shirtOption);
 		menupage.clickOnProducts(menupage.finalProduct);
 		Thread.sleep(5000);
 		menupage.switchToWindow();
@@ -173,7 +175,7 @@ public class Tests extends TestBase{
 		Thread.sleep(5000);
 		menupage.clickOnProducts(menupage.goToBag);
 		Thread.sleep(3000);
-		checkpage.clickOnRemove();
+		checkpage.clickOnRemove(checkpage.removeOption);
 
 	}
 		

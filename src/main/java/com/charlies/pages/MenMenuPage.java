@@ -2,6 +2,7 @@ package com.charlies.pages;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,12 +15,7 @@ import com.charlies.waits.*;
 public class MenMenuPage {
 	
 	
-	@FindBy(css="div.desktop-navLink a[href^=\"/shop/men\"]")
-	public WebElement mensOption;
-	
-	@FindBy(css="a[href^=\"/men-casual-shirts\"]")
-	public WebElement shirtOption;
-	
+	Logger LOG = Logger.getLogger(MenMenuPage.class);
 	
 	@FindBy(css="h4.product-product")
 	public List<WebElement> productNames;
@@ -27,9 +23,10 @@ public class MenMenuPage {
 	@FindBy(css="div.product-ratingsContainer+a[href*=\"shirts/roadster/roadster-men-maroon--navy-blue-checked-pure-cotton-casual-sustainable-shirt/9951411/buy\"]")
 	public WebElement finalProduct;
 	
-	@FindBy(xpath="//p[contains(text(),\"42\")]")
+	@FindBy(xpath="//p[contains(text(),'42')]")
 	public WebElement size;
 	
+	private By shirtsize = By.xpath("//p[contains(text(),'42')]");
 
 	private By productName = By.cssSelector("h4.product-product");
 	
@@ -42,19 +39,14 @@ public class MenMenuPage {
 	@FindBy(css="a.itemContainer-base-itemLink")
 	public WebElement addedCartProduct;
 	
+	
+	@FindBy(css="ul.breadcrumbs-list")
+	public WebElement clothingbreadcrumbs;
+	
 	public MenMenuPage() {
 		PageFactory.initElements(keywords.getDriver(), this);
 	}
 	
-	public void mouseHoverTo() {
-		keywords keyword = new keywords();
-		keyword.getMouseHover(mensOption);
-	}
-	
-	public void clickOnProducts(WebElement ele) {
-		ele.click();
-
-	}
 	public String getLoginUrl() {
 		WaitFor.numberOfElementToBeMoreThan(productName, 1);
 		keywords keyword = new keywords();
@@ -64,14 +56,19 @@ public class MenMenuPage {
 	}
 	public void verifyURL(String expected_url) {
 		String Actualurl=getLoginUrl();
-		System.out.println("Actual URL is :" + Actualurl );
 		Assert.assertEquals(Actualurl, expected_url);
-		System.out.println("Expected and Actual URL is matching" );
+		LOG.info("Expected and Actual URL is matching" );
 	}
 	public List<String> getProductNames() {
 		keywords keyword = new keywords();
 	return keyword.getTexts(productNames);
 }
+	
+	public void clickOnProducts(WebElement ele) throws InterruptedException  {
+		Thread.sleep(3000);
+		ele.click();
+
+	}
 	
 	/**
 	 * public List<String> verifyProductNamesContains() {
@@ -87,31 +84,40 @@ public class MenMenuPage {
 	 * @return
 	 * @throws InterruptedException 
 	 */
-	 public void selectSize(WebElement size) throws InterruptedException {
-		 Thread.sleep(3000);
-		 size.click();
+	 public void selectSize(WebElement size) throws InterruptedException{
+		Thread.sleep(5000);
+		size.click();
 		 
 
 	}
 	 
-	 public void switchToWindow() throws InterruptedException {
+	 public void switchToWindow(){
 		 keywords keyword = new keywords();
 		 keyword.getWindowHandle();
-		
+		 
 	} 
 	 
 	 public String getTextOfAddedCartProduct() {
 		 keywords keyword = new keywords();
-		 return keyword.getText(addedCartProduct);
-
+		 String Actual_text= keyword.getText(addedCartProduct);
+		 return Actual_text;
 	}
 	 
-	 public void verifyAddProductContains() {
+	 public void verifyAddProductContains(){
 		 String Actual_text =getTextOfAddedCartProduct();
-		 String Expected_text = finalProduct.getText();
-		 Assert.assertEquals(Actual_text, Expected_text);
+		 Assert.assertEquals(Actual_text, "Men Maroon & Navy Blue Checked Pure Cotton Casual Sustainable Shirt");
 
+	 }
+	 
+	 
+	 public String getTextOfBreadCrumbs() {
+		 return clothingbreadcrumbs.getText();
 	}
 	 
+	 public void verifyTextContains() {
+		 String expected_text =getTextOfBreadCrumbs();
+		 Assert.assertTrue(expected_text.contains("Clothing"));
+
+	}
 }
 

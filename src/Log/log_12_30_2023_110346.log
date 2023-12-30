@@ -1,0 +1,6 @@
+2023-Dec-30 11:03:46,350 [main] com.charlies.keywords.keywords 
+  INFO  opening firefox browser
+2023-Dec-30 11:03:54,514 [main] com.charlies.keywords.keywords 
+  INFO  Launching url
+2023-Dec-30 11:03:58,266 [main] com.charlies.pages.HomePage 
+  INFO  Entered product to serach[Ljava.lang.CharSequence;@996a546to search

@@ -1,0 +1,6 @@
+2023-Dec-30 11:07:17,566 [main] com.charlies.keywords.keywords 
+  INFO  opening firefox browser
+2023-Dec-30 11:07:27,284 [main] com.charlies.keywords.keywords 
+  INFO  Launching url
+2023-Dec-30 11:07:55,432 [main] com.charlies.pages.LoginPage 
+  INFO  Expected and Actual URL is matching
